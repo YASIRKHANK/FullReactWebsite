@@ -2,17 +2,24 @@
 import React from 'react';
 import codeData from '../config/CodeData';
 import Fotter from '../components/Fotter'; // Make sure to import the Footer component
+import img1 from '../image/code.webp'
+
 
 const WebTheme = () => {
   return (
     <div className="p-5 bg-emerald-400">
+      <div className='flex'>
       <div>
         <p className="text-3xl font-bold">Thousand of code, Script & plugins<br/> for every website build</p>
         <p className="mt-2">
           Choose from ecommerce plugins, mobile app templates, PHP Bootstrap,<br/> and many more budget-built by the world's best developers.
         </p>
       </div>
-      <div className="mb-5 mt-10">
+      <div className='ml-52 '>
+      <img src={img1}  />
+      </div>
+      </div>
+      <div>
         <input
           type="text"
           placeholder="Search..."

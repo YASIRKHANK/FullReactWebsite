@@ -1,30 +1,22 @@
 
-
-
 import React, { useState } from "react";
 import { DiEnvato } from "react-icons/di";
 import { PiDotsNineBold } from "react-icons/pi";
 import { Link } from 'react-router-dom';
+import SignupForm from "../components/SignupForm"; // Import the SignupForm component
 
 const Navbar = () => {
+  const [isSignupPopupOpen, setSignupPopupOpen] = useState(false);
   const [isPopoverOpenFormus, setPopoverOpenFormus] = useState(false);
   const [isPopoverOpenSelling, setPopoverOpenSelling] = useState(false);
   const [isPopoverOpenProduct, setPopoverOpenProduct] = useState(false);
 
-  const togglePopover = (popover) => {
-    if (popover === "Formus") {
-      setPopoverOpenFormus(!isPopoverOpenFormus);
-      setPopoverOpenSelling(false);
-      setPopoverOpenProduct(false);
-    } else if (popover === "StartSelling") {
-      setPopoverOpenSelling(!isPopoverOpenSelling);
-      setPopoverOpenFormus(false);
-      setPopoverOpenProduct(false);
-    } else if (popover === "OurProducts") {
-      setPopoverOpenProduct(!isPopoverOpenProduct);
-      setPopoverOpenFormus(false);
-      setPopoverOpenSelling(false);
-    }
+  const toggleSignupPopup = () => {
+    setSignupPopupOpen(!isSignupPopupOpen);
+  };
+
+  const closeSignupPopup = () => {
+    setSignupPopupOpen(false);
   };
 
   return (
@@ -39,7 +31,7 @@ const Navbar = () => {
 
         <div className="ml-auto flex gap-x-10 font-serif">
           <button
-            onClick={() => togglePopover("Formus")}
+            onClick={() => setPopoverOpenFormus(!isPopoverOpenFormus)}
             className="relative"
           >
             Formus
@@ -55,7 +47,7 @@ const Navbar = () => {
           </button>
 
           <button
-            onClick={() => togglePopover("StartSelling")}
+            onClick={() => setPopoverOpenSelling(!isPopoverOpenSelling)}
             className="relative"
           >
             Start Selling
@@ -71,14 +63,14 @@ const Navbar = () => {
           </button>
 
           <button
-            onClick={() => togglePopover("OurProducts")}
+            onClick={() => setPopoverOpenProduct(!isPopoverOpenProduct)}
             className="relative"
           >
             <p className="flex">
               <PiDotsNineBold className="mt-1" /> Our products
             </p>
             {isPopoverOpenProduct && (
-              <div className="absolute bg-white text-black mt-2 p-2  border border-gray-300 w-40 h-72 ">
+              <div className="absolute bg-white text-black mt-2 p-2 border border-gray-300 w-40 h-72 ">
                 <p>
                   Explore a curated collection of top-notch products on Formus.
                   From art and design to handcrafted goods, our marketplace
@@ -88,48 +80,56 @@ const Navbar = () => {
               </div>
             )}
           </button>
+
+          <button
+            onClick={toggleSignupPopup}
+            className="border py-2 px-2 ml-4 rounded-md"
+          >
+            Signup
+          </button>
+          {isSignupPopupOpen && <SignupForm closeForm={closeSignupPopup} />}
         </div>
+
         <div>
           <button className="border py-2 px-2 ml-4 rounded-md">Signin</button>
         </div>     
       </div>
 
-      {/* this secsion is about navbar element */}
       <div>
-      <nav className=" text-white mt-10 ">
-      <ul className="flex gap-x-10">
-      <li>
-          <Link to="/theme" className=" font-bold px-4 py-2 rounded-md  ml-16">Web Themes & Templates</Link>
-        </li>
-        <li>
-          <Link to="/code" className=" font-bold px-4 py-2 rounded-md  ml-16">Code</Link>
-        </li>
+        <nav className=" text-white mt-10 ">
+          <ul className="flex gap-x-10">
+            <li>
+              <Link to="/" className=" font-bold px-4 py-2 rounded-md  ml-16">Web Themes & Templates</Link>
+            </li>
+            <li>
+              <Link to="/code" className=" font-bold px-4 py-2 rounded-md  ml-16">Code</Link>
+            </li>
 
-        <li>
-          <Link to="/video" className="font-bold">Video</Link>
-        </li>
+            <li>
+              <Link to="/video" className="font-bold">Video</Link>
+            </li>
 
-        <li>
-          <Link to="/audio" className="font-bold">Audio</Link>
-        </li>
+            <li>
+              <Link to="/audio" className="font-bold">Audio</Link>
+            </li>
 
-         <li>
-          <Link to="/graphic" className="font-bold">Graphic</Link>
-        </li>
+            <li>
+              <Link to="/graphic" className="font-bold">Graphic</Link>
+            </li>
 
-         <li>
-          <Link to="/photos" className="font-bold">Photos</Link>
-        </li> 
+            <li>
+              <Link to="/photos" className="font-bold">Photos</Link>
+            </li> 
 
-        <li>
-          <Link to="/threed" className="font-bold"> threeD Files</Link>
-        </li> 
-
-      </ul>
-    </nav>
+            <li>
+              <Link to="/threed" className="font-bold"> threeD Files</Link>
+            </li> 
+          </ul>
+        </nav>
       </div>
     </div>
   );
 };
 
 export default Navbar;
+

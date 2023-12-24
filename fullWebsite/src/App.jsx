@@ -1,16 +1,4 @@
 
-// import './App.css'
-// import Navbar from './components/Navbar'
-
-// function App() {
-
-//   return (
-//    <Navbar/>
-//   )
-// }
-
-// export default App
-
 
 
 import React from 'react';
@@ -28,12 +16,12 @@ import SubNavbar from './components/SubNavbar';
 
 function App() {
   return (
-    <Router>
+    <Router>  
       <Navbar />
       <SubNavbar/>
       <div>
         <Routes>
-        <Route path="/theme" element={<Theme />} />
+        <Route path="/" element={<Theme />} />
           <Route path="/code" element={<Code />} />
           <Route path="/video" element={<Video />} />
           <Route path="/audio" element={<Audio />} />

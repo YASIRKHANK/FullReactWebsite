@@ -16,7 +16,7 @@ function SubNavbar() {
     "AI Tools",
     "WP Themes",
     "Plugins",
-    "Mockup Generator",
+    "Mockup Generator ",
     "More",
   ];
 
@@ -42,7 +42,7 @@ function SubNavbar() {
               <Link to="#">{item}</Link>
               {showContent === item && (
                 <div className="absolute top-full bg-white border ">
-                  {item === "All Items" && (
+                  {item === "All Items" && (  
                     <div className="w-48 ">
                       <Link to="#"  className="hover:bg-gray-500">Featured Files</Link>
                       <br />

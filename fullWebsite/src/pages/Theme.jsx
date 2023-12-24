@@ -3,16 +3,23 @@
 import React from 'react';
 import ThemeData from '../config/ThemeData';
 import Fotter from '../components/Fotter';
+import img1 from '../image/theme.webp'
+
 
 
 const WebTheme = () => {
   return (
     <div className="bg-stone-400 p-5">
+      <div className='flex'>
         <div >
         <p className='text-3xl font-bold'>Professional WordPress  Theme & <br/>Website Templates for any project</p>
         <p className='mt-2'> Discover thousand of ewasyto customize theme, templates & cms<br/> anProduct, made by word class developer  </p>
       </div>
-      <div className="mb-5 mt-10">
+      <div className=' ml-52 '>
+      <img src={img1}  />
+      </div>
+      </div>
+      <div >
         <input
           type="text"
           placeholder="Search..."
